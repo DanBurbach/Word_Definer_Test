@@ -1,17 +1,17 @@
 require('pry')
 
 class Word
-  attr_accessor :name :definition
+  attr_accessor :word, :definition
   @@list = []
   @@list_defined = []
 
-  def initialize(name, definition)
-    @name = name
+  def initialize(word, definition)
+    @word = word
     @definition = definition
   end
 
   def self.all()
-    @@definition
+    @@list
   end
 
   def save()
@@ -22,8 +22,8 @@ class Word
   end
 
   def self.wordDefinitions()
-    @@list_defined = @@list.sort_by {|item| time.name}
-    @@ranked_list
+    @@list_defined = @@list.sort_by {|item| item.word}
+    @@list_defined
   end
 
   def self.clear()

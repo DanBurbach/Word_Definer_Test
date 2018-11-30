@@ -6,7 +6,7 @@ set(:show_exceptions, false)
 describe('Favorite-Things', {:type => :feature}) do
   it('Takes a name and definition from the user, and adds it to an ordered list') do
     visit('/')
-    fill_in('name', :with => 'apple')
+    fill_in('word', :with => 'apple')
     fill_in('definition', :with => 'the round fruit of a tree of the rose family, which typically has thin red or green skin and crisp flesh. Many varieties have been developed as dessert or cooking fruit or for making cider.')
     click_button('Add!')
     fill_in('name', :with => 'clock')

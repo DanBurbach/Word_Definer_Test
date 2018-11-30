@@ -1,9 +1,13 @@
-<h2>Definition of you word!</h2>
-
-<% @defined_list.each do |item| %>
-  <%= item.name %> <%= item.definition %> <br>
+<h2>Your word is:</h2>
+<% @list_defined.each do |item| %>
+  <%= item.word %> <br>
 <% end %>
 
+<h2>Definition of you word!</h2>
+
+<% @list_defined.each do |item| %>
+  <%= item.definition %> <br>
+<% end %>
 
 <h4>Add an item to the list:</h4>
 <br>
@@ -14,5 +18,5 @@
     <label for="definition">Definition:</label>
     <input id="definition" name="definition" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Go!</button>
+  <button type="submit" class="btn">Add!</button>
 </form>

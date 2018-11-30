@@ -1,19 +1,19 @@
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
-require('./lib/item')
+require('./lib/word')
 
 get('/') do
   Word.clear()
   @list = Word.all()
-  @defined_list = Word.wordDefinitions()
-  erb(:word_definition.erb)
+  @list_defined = Word.wordDefinitions()
+  erb (:word_definition)
 end
 
 post('/') do
-  @new_word = Word.new(params.fetch("name,"), params.fetch("definition"))
+  @new_word = Word.new(params.fetch("word"), params.fetch("definition"))
   @new_word.save()
   @list = Word.all()
-  @defined_list = Word.wordDefinitions()
-  erb(:word_definition)
+  @list_defined = Word.wordDefinitions()
+  erb (:word_definition)
 end

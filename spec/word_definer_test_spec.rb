@@ -1,4 +1,4 @@
-require('item')
+require('word')
 require('rspec')
 
 describe(Word) do
