@@ -1,34 +1,51 @@
 require('pry')
 
-class Word
-  attr_accessor :word, :definition
-  attr_reader :id
-  @@list = []
-  @@list_defined = []
+module Define
+  class Word
+    @@list = []
+    @@list_defined = []
+    @@list_id = []
+    attr_accessor :word, :definition
+    attr_reader :id
 
-  def initialize(word, definition)
-    @id = @@list_defined.length + 1
-    @word = word
-    @definition = definition
-  end
 
-  def self.all()
-    @@list
-  end
-
-  def save()
-    if @@list.find {|x| x = self} == [self]
-    else
-      @@list.push(self)
+    def initialize(word, definition)
+      @word = word
+      @definition = definition
+      @id = @@list_defined.length + 1
     end
-  end
 
-  def self.wordDefinitions()
-    @@list_defined = @@list.sort_by {|item| item.word}
-    @@list_defined
-  end
+    def self.all()
+      @@list
+    end
 
-  def self.clear()
-  @@list = []
+    def self.find(id)
+      item_id = id.to_i()
+      @@list_defined.each do |item|
+        if item.id == item_id
+          return word
+        end
+      end
+    end
+
+    def save()
+      if @@list.find {|x| x = self} == [self]
+      else
+        @@list.push(self)
+        @@list_id.push(self.id)
+      end
+    end
+
+    def self.wordDefinitions()
+      @@list_defined = @@list.sort_by {|item| item.word}
+      @@list_defined
+    end
+
+    def self.clear()
+    @@list = []
+    @@list_defined = []
+    @@list_id = []
+
+    end
   end
 end

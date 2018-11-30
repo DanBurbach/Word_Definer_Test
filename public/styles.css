@@ -1,9 +1,16 @@
-.jumbotron
+.jumbotron jumbotron1
 {
   padding-top: 20px;
   padding-bottom:20px;
   /* background-image:url(''); */
  }
+
+ .jumbotron jumbotron2
+ {
+   padding-top: 20px;
+   padding-bottom:20px;
+   /* background-image:url(''); */
+  }
 
  body {
    text-align: center;
