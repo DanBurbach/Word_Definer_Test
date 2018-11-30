@@ -1,4 +1,3 @@
-Ruby: Week 2: Friday Test: Word Definer. A program pushed to Heroku that allows children to see a word definition and add their own words and definitions.
 <h1>Word Definer</h1>
 <h2>Ruby: Week 2: Friday Test: Word Definer. A program that allows children to add their own words and definitions.
 
