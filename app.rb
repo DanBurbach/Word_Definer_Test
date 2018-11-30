@@ -7,7 +7,7 @@ get('/') do
   Word.clear()
   @list = Word.all()
   @list_defined = Word.wordDefinitions()
-  erb (:word_definition)
+  erb (:word_listing)
 end
 
 post('/') do
@@ -15,5 +15,10 @@ post('/') do
   @new_word.save()
   @list = Word.all()
   @list_defined = Word.wordDefinitions()
-  erb (:word_definition)
+  erb (:word_listing)
+end
+
+get('word/:word, :definition') do
+  @word = Word.find(params[:word, :definition])
+  erb(:word_definition)
 end

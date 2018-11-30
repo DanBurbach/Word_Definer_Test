@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="jumbotron jumbotron1">
+    <h2>Welcome to the Word Definer</h2>
+    <h4>Below are some words that you can learn about. <br>
+      Please select a word and click on "Submit" to learn what the definition is for that word!</h4><br>
+
+      <% @list_defined.each do |item| %>
+        <strong>Word:</strong> <%= item.word %> <br><br>
+      <% end %>
+
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="jumbotron jumbotron2">
+    <h4>If there is a new word AND a definition you wish to add to the list, <br>
+      please fill out the following to add it to the list!</h4>
+    <h4>Add an item to the list:</h4>
+    <br>
+    <form action="/" method="post">
+      <div class="form-group">
+        <label for="word">Word:</label>
+        <input id="word" name="word" class="form-control" type="text"><br><br>
+        <label for="definition">Definition:</label>
+        <input id="definition" name="definition" class="form-control" type="text">
+      </div><br>
+      <button type="submit" class="btn-alert">Add!</button>
+    </form>
+  </div>
+</div>
