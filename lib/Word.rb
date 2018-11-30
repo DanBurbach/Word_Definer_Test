@@ -2,10 +2,12 @@ require('pry')
 
 class Word
   attr_accessor :word, :definition
+  attr_reader :id
   @@list = []
   @@list_defined = []
 
   def initialize(word, definition)
+    @id = @@list_defined.length + 1
     @word = word
     @definition = definition
   end

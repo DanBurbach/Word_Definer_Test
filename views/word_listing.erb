@@ -1,11 +1,9 @@
 <div class="container">
   <div class="jumbotron jumbotron1">
-    <h2>Welcome to the Word Definer</h2>
-    <h4>Below are some words that you can learn about. <br>
-      Please select a word and click on "Submit" to learn what the definition is for that word!</h4><br>
+    <h2>Welcome to the Word Definer</h2><br>
 
       <% @list_defined.each do |item| %>
-        <strong>Word:</strong> <%= item.word %> <br><br>
+        <strong>Word:</strong> <a href="/words/<%= item.word %>"><%= item.word %></a> <br><br>
       <% end %>
 
     </form>
