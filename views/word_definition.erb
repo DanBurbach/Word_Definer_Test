@@ -2,14 +2,14 @@
   <div class="jumbotron">
     <h2>Your word is:</h2>
 
-    <% @list.each do |item| %>
-      <%= word %> <br>
+    <% @list_defined.each do |word| %>
+      <%= item.word %> <br>
     <% end %>
 
     <h2>Definition of you word!</h2>
 
-    <% @list.each do |item| %>
-      <%= definition %> <br>
+    <% @list_defined.each do |definition| %>
+      <%= item.definition %> <br>
     <% end %>
 
     <form class="form-group" action="/word_listing" method="post">

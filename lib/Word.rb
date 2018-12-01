@@ -2,22 +2,19 @@ require('pry')
 
 module Define
   class Word
-    @@list = []
-    @@list_defined = []
-    @@list_id = []
     attr_accessor :word, :definition
     attr_reader :id
 
+    @@list = []
+    @@list_defined = []
+    @@list_id = []
 
     def initialize(word, definition)
       @word = word
       @definition = definition
-      @id = @@list_defined.length + 1
+      @id = @@list.length + 1
     end
 
-    def self.all()
-      @@list
-    end
 
     def added_definition(definition)
       @list_defined.push(definition)
@@ -37,6 +34,7 @@ module Define
       else
         @@list.push(self)
         @@list_id.push(self.id)
+        @@list_defined.push(self)
       end
     end
 
@@ -51,5 +49,8 @@ module Define
     @@list_id = []
     end
 
+    def self.all()
+      @@list
+    end
   end
 end
