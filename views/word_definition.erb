@@ -3,13 +3,13 @@
     <h2>Your word is:</h2>
 
     <% @list_defined.each do |word| %>
-      <%= item.word %> <br>
+      <%= word.word %> <br>
     <% end %>
 
     <h2>Definition of you word!</h2>
 
     <% @list_defined.each do |definition| %>
-      <%= item.definition %> <br>
+      <%= definition.definition %> <br>
     <% end %>
 
     <form class="form-group" action="/word_listing" method="post">

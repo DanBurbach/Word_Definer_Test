@@ -23,6 +23,7 @@ get('/word/:id') do
   word = Define::Word.find(params[:id])
   @word = word.word
   @definition = word.definition
+  @list_defined = Define::Word.wordDefinitions()
   erb(:word_definition)
 end
 
@@ -30,5 +31,6 @@ post('/word/:id') do
   word = Define::Word.find(params[:id])
   @word = word.word
   @definition = word.definition
+
   erb(:word_definition)
 end

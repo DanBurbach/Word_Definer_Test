@@ -13,6 +13,7 @@ module Define
       @word = word
       @definition = definition
       @id = @@list.length + 1
+      binding.pry
     end
 
 
