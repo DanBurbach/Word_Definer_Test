@@ -1,17 +1,19 @@
 <div class="container">
   <div class="jumbotron">
     <h2>Your word is:</h2>
-    <% @list_defined.each do |item| %>
-      <%= item.word %> <br>
+
+    <% @list.each do |item| %>
+      <%= word %> <br>
     <% end %>
 
     <h2>Definition of you word!</h2>
 
-    <% @list_defined.each do |item| %>
-      <%= item.definition %> <br>
+    <% @list.each do |item| %>
+      <%= definition %> <br>
     <% end %>
 
-      <button type="button" class="btn-alert" onclick="/word_listing">Return to List</button>
-    </a>
+    <form class="form-group" action="/word_listing" method="post">
+      <button type="button" class="btn-alert" na me="button">Return to List</button>
+
   </div>
 </div>

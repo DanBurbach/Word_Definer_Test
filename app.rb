@@ -5,9 +5,9 @@ require('./lib/word')
 
 
 get('/') do
-  Define::Word.clear()
   @list = Define::Word.all()
   @list_defined = Define::Word.wordDefinitions()
+  Define::Word.clear()
   erb (:word_listing)
 end
 
@@ -19,11 +19,16 @@ post('/') do
   erb (:word_listing)
 end
 
- post('/word-list') do
-   erb(:word_listing)
- end
-
 get('/word/:id') do
-  @word = Define::Word.find(params[:word])
+  word = Define::Word.find(params[:id])
+  @word = word.word
+  @definition = word.definition
+  erb(:word_definition)
+end
+
+post('/word/:id') do
+  word = Define::Word.find(params[:id])
+  @word = word.word
+  @definition = word.definition
   erb(:word_definition)
 end

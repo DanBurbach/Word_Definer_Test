@@ -1,13 +1,26 @@
 require('word')
 require('rspec')
 
- describe(Define::Word) do
-   describe('.wordDefinitions') do
-     it('sorts our list of items by name') do
-       new_item = Define::Word.new("gate", "a hinged barrier").save
-       new_item = Define::Word.new("apple", "a fruit").save
-       new_item = Define::Word.new("cheese", "a food made from the pressed curds of milk.").save
-       expect(Define::Word.wordDefinitions).to(eq("apple""a fruit""cheese""a food made from the pressed curds of milk""gate""a hinged barrier"))
-     end
-   end
- end
+describe(".all") do
+    it("is empty at first") do
+      word = Define::Word.new("")
+      definition = Define::Word.new("")
+      expect(Define::Word.all()).to(eq([]))
+    end
+  end
+
+describe("#id") do
+    it("increments an id by 1 each time a new item is added") do
+      word = Define::Word.new("apple")
+      definition = Define::Word.new("a fruit")
+      expect(word.id()).to(eq(1))
+      expect(word2.id()).to(eq(2))
+    end
+  end
+
+  describe(".find") do
+      it("finds an item based on its id") do
+        word = Define::Word.new("tacos")
+        expect(Define::Word.find(1)).to(eq(word))
+      end
+    end

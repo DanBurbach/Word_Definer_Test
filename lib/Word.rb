@@ -19,11 +19,15 @@ module Define
       @@list
     end
 
+    def added_definition(definition)
+      @list_defined.push(definition)
+    end
+
     def self.find(id)
       item_id = id.to_i()
-      @@list_defined.each do |item|
+      @@list.each do |item|
         if item.id == item_id
-          return word
+          return item
         end
       end
     end
@@ -45,7 +49,7 @@ module Define
     @@list = []
     @@list_defined = []
     @@list_id = []
-
     end
+
   end
 end
