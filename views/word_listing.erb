@@ -1,7 +1,6 @@
 <div class="container">
   <div class="jumbotron jumbotron1">
     <h2>Welcome to the Word Definer</h2><br>
-    </form>
   </div>
 </div>
 
@@ -14,19 +13,20 @@
     <form action="/" method="post">
       <div class="form-group">
         <label for="word">Word:</label>
-        <input id="word" name="word" class="form-control" type="text"><br><br>
+        <input name="word" required pattern=".*\S+.*" title="This field is required" type="text"><br><br>
         <label for="definition">Definition:</label>
-        <input id="definition" name="definition" class="form-control" type="text">
+        <input name="definition" required pattern=".*\S+.*" title= "This field is required" type="text">
       </div><br>
       <button type="submit" class="btn-alert">Add!</button>
     </form><br>
+
     <form class="form-group" action="/" method="get">
       <button type="submit" name="button">Clear list</button>
     </form>
 
 
     <div class="output-form-box">
-      <% @list_defined.each do |item| %>
+      <% Define::Word.word_sort.each do |item| %>
         <strong>Word:</strong> <a href="/word/<%= item.id %>"><%= item.word %></a> <br><br>
       <% end %><br>
     </div>
