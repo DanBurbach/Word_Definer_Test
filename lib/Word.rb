@@ -6,52 +6,49 @@ module Define
     attr_reader :id
 
     @@list = []
-    @@list_defined = []
     @@list_id = []
+    @@list_defined = []
 
     def initialize(word, definition)
       @word = word
       @definition = definition
       @id = @@list.length + 1
-      binding.pry
     end
 
-
     def added_definition(definition)
-      @list_defined.push(definition)
+      @definition.push(definition)
     end
 
     def self.find(id)
-      item_id = id.to_i()
-      @@list.each do |item|
-        if item.id == item_id
-          return item
-        end
-      end
+      @@list[id.to_i - 1]
     end
 
     def save()
-      if @@list.find {|x| x = self} == [self]
-      else
-        @@list.push(self)
-        @@list_id.push(self.id)
-        @@list_defined.push(self)
-      end
+      @@list.push(self.word, self.definition)
+      @@list_id.push(self.id)
+      @@list_defined.push(self)
     end
 
-    def self.wordDefinitions()
+    def self.word_sort
       @@list_defined = @@list.sort_by {|item| item.word}
       @@list_defined
     end
 
+    def self.all_words
+      @@list_defined
+    end
+
     def self.clear()
-    @@list = []
-    @@list_defined = []
-    @@list_id = []
+      @@list = []
+      @@list_defined = []
+      @@list_id = []
     end
 
     def self.all()
       @@list
+      @@list_defined
+      @@list_id
     end
+
   end
 end
