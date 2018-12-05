@@ -6,6 +6,8 @@ module Define
     attr_reader :id
 
     @@word_list = []
+    @@word_defined = []
+    @@word_id = []
 
     def initialize(word)
       @word = word
@@ -17,12 +19,33 @@ module Define
       @@word_list
     end
 
+    def self.all_words
+      @@word_defined
+    end
+
+    def self.all_word_ids
+      @@word_id
+    end
+
     def saved_definition(definition)
       @definition.push(definition)
     end
 
     def self.find(id)
-      @@list[id.to_i - 1]
+      word_id = id.to_i()
+      @@word_list.each do |item|
+        if item.id == word_id
+          return item.id
+        end
+      end
+    end
+
+    def self.find_word(id)
+      @@word_list.each do |item|
+        if item.id == id
+          return item.word
+        end
+      end
     end
 
     def save()
@@ -30,12 +53,13 @@ module Define
     end
 
     def self.words_sorted()
-      @@list_defined = @@list.sort_by {|item| item.word}
-      @@list_defined
+      @@word_defined = @@word_defined.sort_by {|item| item.word}
     end
 
     def self.clear()
       @@word_list = []
+      @@word_defined = []
+      @@word_id = []
     end
 
   end
