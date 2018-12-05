@@ -1,7 +1,6 @@
 <div class="container">
   <div class="jumbotron jumbotron1">
     <h2>Welcome to the Word Definer</h2><br>
-    </form>
   </div>
 </div>
 
@@ -11,7 +10,7 @@
       please fill out the following to add it to the list!</h4>
     <h4>Add an item to the list:</h4>
     <br>
-    <form action="/" method="post">
+    <form action="/new_words" method="post">
       <div class="form-group">
         <label for="word">Word:</label>
         <input id="word" name="word" class="form-control" type="text"><br><br>
@@ -26,7 +25,7 @@
 
 
     <div class="output-form-box">
-      <% @list_defined.each do |item| %>
+      <% @list.each do |item| %>
         <strong>Word:</strong> <a href="/word/<%= item.id %>"><%= item.word %></a> <br><br>
       <% end %><br>
     </div>

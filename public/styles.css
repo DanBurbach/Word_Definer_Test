@@ -1,14 +1,15 @@
 .jumbotron jumbotron1
 {
-  padding-top: 20px;
-  padding-bottom:20px;
-  /* background-image:url(''); */
+  padding-top: 10px;
+  padding-bottom:10px;
+  background-image:url('/public/books-image.jpeg');
+  color: black;
  }
 
  .jumbotron jumbotron2
  {
-   padding-top: 20px;
-   padding-bottom:20px;
+   padding-top: 10px;
+   padding-bottom:10px;
    /* background-image:url(''); */
   }
 

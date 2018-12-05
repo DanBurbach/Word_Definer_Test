@@ -5,53 +5,38 @@ module Define
     attr_accessor :word, :definition
     attr_reader :id
 
-    @@list = []
-    @@list_defined = []
-    @@list_id = []
+    @@word_list = []
 
-    def initialize(word, definition)
+    def initialize(word)
       @word = word
-      @definition = definition
-      @id = @@list.length + 1
-      binding.pry
+      @definition = []
+      @id = @@word_list.length + 1
     end
 
+    def self.all()
+      @@word_list
+    end
 
-    def added_definition(definition)
-      @list_defined.push(definition)
+    def saved_definition(definition)
+      @definition.push(definition)
     end
 
     def self.find(id)
-      item_id = id.to_i()
-      @@list.each do |item|
-        if item.id == item_id
-          return item
-        end
-      end
+      @@list[id.to_i - 1]
     end
 
     def save()
-      if @@list.find {|x| x = self} == [self]
-      else
-        @@list.push(self)
-        @@list_id.push(self.id)
-        @@list_defined.push(self)
-      end
+      @@word_list.push(self)
     end
 
-    def self.wordDefinitions()
+    def self.words_sorted()
       @@list_defined = @@list.sort_by {|item| item.word}
       @@list_defined
     end
 
     def self.clear()
-    @@list = []
-    @@list_defined = []
-    @@list_id = []
+      @@word_list = []
     end
 
-    def self.all()
-      @@list
-    end
   end
 end
