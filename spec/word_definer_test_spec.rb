@@ -1,5 +1,6 @@
 require('word')
 require('rspec')
+require('pry')
 
 describe("Define::Word") do
 
@@ -32,15 +33,12 @@ describe("Define::Word") do
 
   describe(".find") do
   it("finds a word by its ID") do
-    new_word = Define::Word.new("cat")
-    new_word.save()
-    next_word = Define::Word.new("dog")
-    next_word.save()
-    final_word = Define::Word.new("mongoose")
-    final_word.save()
-    expect(Define::Word.find).to(eq(1))
-    expect(Define::Word.find).to(eq(2))
-    Define::Word.clear
+    new_word1 = Define::Word.new("cat")
+    new_word1.save()
+    new_word2 = Define::Word.new("dog")
+    new_word2.save()
+    expect(Define::Word.find_word(1)).to(eq("cat"))
+    expect(Define::Word.find_word(2)).to(eq("dog"))
   end
 end
 

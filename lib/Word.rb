@@ -23,7 +23,7 @@ module Define
       @@word_defined
     end
 
-    def self.all_word_ids
+    def self.all_word_ids()
       @@word_id
     end
 
@@ -32,12 +32,7 @@ module Define
     end
 
     def self.find(id)
-      word_id = id.to_i()
-      @@word_list.each do |item|
-        if item.id == word_id
-          return item.id
-        end
-      end
+      @@word_defined[id.to_i - 1]
     end
 
     def self.find_word(id)
