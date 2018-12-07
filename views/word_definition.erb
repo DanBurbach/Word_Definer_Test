@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="jumbotron jumbotron2">
+  <div class="jumbotron jumbotron-2">
     <h2>Your word is:</h2>
 
     <strong><%= @word.word %></strong><br>
@@ -15,8 +15,6 @@
       <button type="submit" name="button">Add definition</button>
     </form>
 
-    <form class="form-group" href="/" method="get">
-      <button type="button" class="btn-alert" na me="button">Return to List</button>
-    </form>
+    <a id="returnButton" class="btn btn-secondary" href="/">Return to List</a>
   </div>
 </div>

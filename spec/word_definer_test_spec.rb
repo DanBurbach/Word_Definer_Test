@@ -2,52 +2,58 @@ require('word')
 require('rspec')
 require('pry')
 
-describe("Define::Word") do
+describe("Word") do
 
   before() do
-    Define::Word.clear()
+    Word.clear()
   end
 
-  describe(".all") do
-    it("is empty at first, and is open to be filled") do
-      expect(Define::Word.all()).to(eq([]))
-    end
-  end
-
-  describe("#saved_word") do
-    it("saves a new word") do
-      new_word = Define::Word.new("apple")
-      new_word.save()
-      expect(Define::Word.all()).to(eq([new_word]))
-    end
-  end
-
-  describe("#saved_definition") do
-    it("adds a definition") do
-      new_word = Define::Word.new("apple")
-      new_word.save()
-      new_word.saved_definition("a red tasty sweet crisp snack")
-      expect(new_word.saved_definition("a fruit")).to(eq(["a red tasty sweet crisp snack", "a fruit"]))
-    end
-  end
-
-  describe(".find") do
-    it("finds a word by its ID") do
-      new_word1 = Define::Word.new("cat")
-      new_word1.save()
-      new_word2 = Define::Word.new("dog")
-      new_word2.save()
-      expect(Define::Word.find_word(1)).to(eq("cat"))
-      expect(Define::Word.find_word(2)).to(eq("dog"))
-    end
-  end
-
-  describe(".clear") do
-    it("clears all items from the list") do
-      word = Define::Word.new("tacos")
+  describe("#save") do
+    it("saves an item to the list of items") do
+      Word.clear()
+      word = Word.new({:word=> 'Red', :definition=> 'The color Red'})
       word.save()
-      Define::Word.clear()
-      expect(Define::Word.all()).to(eq([]))
+      expect(Word.all()).to(eq([word]))
+    end
+  end
+
+  describe("#clear") do
+    it("clears the list of items") do
+      word = Word.new({:word=> 'Red', :definition=> 'The color Red'})
+      Word.clear()
+      expect(Word.all()).to(eq([]))
+    end
+  end
+
+  describe("#save") do
+    it("saves an item to the list of items with multiple definitions") do
+      Word.clear()
+      word = Word.new({:word=> 'Red', :definition=> 'The color Red'})
+      word.save()
+      word2 = Word.new({:word=> 'Blue', :definition=> 'The color Blue is sapphire'})
+      word2.save()
+      expect(Word.all()).to(eq([word, word2]))
+    end
+  end
+
+  describe("#find") do
+    it("saves an item to the list of items with multiple definitions") do
+      Word.clear()
+      word = Word.new({:word=> 'Red', :definition=> 'The color Red'})
+      word.save()
+      expect(Word.find(1)).to(eq(word))
+    end
+  end
+
+  describe("#id") do
+  it("increments an id by 1 each time a new item is added") do
+    Word.clear()
+    word= Word.new({:word=> "peanut", :definition=> "Elephants favorite"})
+    word.save()
+    word2 = Word.new({:word=> "cupcake", :definition=> "Cake in cup form"})
+    word2.save()
+    expect(word.id()).to(eq(1))
+    expect(word2.id()).to(eq(2))
     end
   end
 end

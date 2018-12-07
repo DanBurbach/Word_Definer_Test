@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="jumbotron jumbotron1">
+  <div class="jumbotron">
     <h2>Welcome to the Word Definer</h2><br>
   </div>
 </div>
 
 <div class="container">
-  <div class="jumbotron jumbotron2">
+  <div class="jumbotron jumbotron-2">
     <h4>Add a word you wish to define to the list:</h4>
     <br>
     <form action="/wordlist" method="post">
@@ -16,7 +16,7 @@
         <input type="text" name="definition" required pattern=".*\S+.*" title="This field is required"><br      </div><br>
       <button type="submit" class="btn-alert">Add!</button>
     </form><br>
-    <form class="form-group" action="/clear" method="get">
+    <form class="form-group" action="/" method="get">
       <button type="submit" name="button">Clear list</button>
     </form>
 
