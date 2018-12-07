@@ -5,42 +5,28 @@ require('./lib/word')
 require('pry')
 
 get('/') do
-  @list = Define::Word.all()
+  Word.clear
+  @word = Word.all()
   erb (:word_listing)
 end
 
-post('/new_words') do
-  new_word = params["word"]
-  @@new_word = Define::Word.new(new_word)
-  @@new_word.save()
-  @list = Define::Word.all()
-  @clicked_definition = params[:definition]
-  Define::Word.find(@clicked_definition)
+post('/wordlist') do
+  word = params.fetch('word')
+  definition = params.fetch('definition')
+  new_defined_word = Word.new({:word => word, :definition => definition, :id => nil})
+  new_defined_word.save()
+  @word = Word.all()
   erb (:word_listing)
-end
-
-get('/back') do
-  redirect back
 end
 
 get('/word/:id') do
-  new_word = params[:word]
-  @@new_word = Define::Word.new(new_word)
-  @list_id = paramm[:id].to_i
-  list = Define::Word.find(@list_id)
-  @word = list.word
-  @definition = Define:Word.all
-  # word = Define::Word.find(params[:id])
-  # @word = word.word.to_i
-  # @definition = word.definition.to_i
-  # @list_defined = Define::Word.new_entry()
+  @word = Word.find(params[:id].to_i)
   erb(:word_definition)
 end
 
 post('/word/:id') do
-  word = Define::Word.find(params[:id])
-  @word = word.word
-  @definition = word.definition
-
+  definition = params['definition']
+  @word = Word.find(params[:id].to_i)
+  @word.add_definition(definition)
   erb(:word_definition)
 end

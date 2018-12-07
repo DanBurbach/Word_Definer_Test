@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="jumbotron jumbotron2">
+    <h2>Your word is:</h2>
+
+    <%= @list.word %>
+
+    <h2>Definition(s) of you word!</h2>
+    <% @list.each do |item| %>
+      <p><a href="update/definition/<%= item.id %>"><%= item.definition_list %></a></p>
+    <% end %>
+
+    <label for="/definition">Add another definition to this word:</label><br>
+      <input type="text" name="definition"><br>
+      <button type="submit" name="button">Add a definition</button>
+
+    <form class="form-group" action="/back" method="get">
+      <button type="button" class="btn-alert" na me="button">Return to List</button>
+    </form>
+  </div>
+</div>

@@ -32,15 +32,15 @@ describe("Define::Word") do
   end
 
   describe(".find") do
-  it("finds a word by its ID") do
-    new_word1 = Define::Word.new("cat")
-    new_word1.save()
-    new_word2 = Define::Word.new("dog")
-    new_word2.save()
-    expect(Define::Word.find_word(1)).to(eq("cat"))
-    expect(Define::Word.find_word(2)).to(eq("dog"))
+    it("finds a word by its ID") do
+      new_word1 = Define::Word.new("cat")
+      new_word1.save()
+      new_word2 = Define::Word.new("dog")
+      new_word2.save()
+      expect(Define::Word.find_word(1)).to(eq("cat"))
+      expect(Define::Word.find_word(2)).to(eq("dog"))
+    end
   end
-end
 
   describe(".clear") do
     it("clears all items from the list") do

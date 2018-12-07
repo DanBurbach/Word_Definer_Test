@@ -6,28 +6,25 @@
 
 <div class="container">
   <div class="jumbotron jumbotron2">
-    <h4>If there is a new word AND a definition you wish to add to the list, <br>
-      please fill out the following to add it to the list!</h4>
-    <h4>Add an item to the list:</h4>
+    <h4>Add a word you wish to define to the list:</h4>
     <br>
-    <form action="/new_words" method="post">
+    <form action="/wordlist" method="post">
       <div class="form-group">
         <label for="word">Word:</label>
-        <input id="word" name="word" class="form-control" type="text"><br><br>
+        <input type="text" name="word" required pattern=".*\S+.*" title="This field is required"><br>
         <label for="definition">Definition:</label>
-        <input id="definition" name="definition" class="form-control" type="text">
-      </div><br>
+        <input type="text" name="definition" required pattern=".*\S+.*" title="This field is required"><br      </div><br>
       <button type="submit" class="btn-alert">Add!</button>
     </form><br>
-    <form class="form-group" action="/" method="get">
+    <form class="form-group" action="/clear" method="get">
       <button type="submit" name="button">Clear list</button>
     </form>
 
 
     <div class="output-form-box">
-      <% @list.each do |item| %>
-        <strong>Word:</strong> <a href="/word/<%= item.id %>"><%= item.word %></a> <br><br>
-      <% end %><br>
+      <% @word.each do |item| %>
+        <p><a href="/word/<%= item.id %>"><%= item.word %></a></p>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,61 +1,39 @@
 require('pry')
-
-module Define
   class Word
     attr_accessor :word, :definition
     attr_reader :id
 
-    @@word_list = []
-    @@word_defined = []
-    @@word_id = []
+    @@list = []
 
-    def initialize(word)
-      @word = word
-      @definition = []
-      @id = @@word_list.length + 1
+    def initialize(attributes)
+      @word = attributes.fetch(:word)
+      @definition = [attributes.fetch(:definition)]
+      @id = @@list.length + 1
     end
 
-    def self.all()
-      @@word_list
+    def self.all
+      @@list
     end
 
-    def self.all_words
-      @@word_defined
-    end
-
-    def self.all_word_ids()
-      @@word_id
-    end
-
-    def saved_definition(definition)
-      @definition.push(definition)
+    def add_definition(definitions)
+      @definition.push(definitions)
     end
 
     def self.find(id)
-      @@word_defined[id.to_i - 1]
-    end
-
-    def self.find_word(id)
-      @@word_list.each do |item|
-        if item.id == id
-          return item.word
+      word_id = id.to_i
+      @@list.each do |word|
+        if word.id == word_id
+          return word
         end
       end
     end
 
     def save()
-      @@word_list.push(self)
-    end
-
-    def self.words_sorted()
-      @@word_defined = @@word_defined.sort_by {|item| item.word}
+      @@list.push(self)
     end
 
     def self.clear()
-      @@word_list = []
-      @@word_defined = []
-      @@word_id = []
+      @@list = []
     end
 
-  end
 end

@@ -2,27 +2,20 @@
   <div class="jumbotron jumbotron2">
     <h2>Your word is:</h2>
 
-    <% @list_defined.each do |word| %>
-      <%= word.word %> <br>
+    <strong><%= @word.word %></strong><br>
+
+    <h3>Definition(s) of you word!</h3>
+    <% @word.definition.each do |definition| %>
+      <strong><p><%= definition %></p></strong>
     <% end %>
 
-    <h2>Definition of you word!</h2>
+    <form action="/word/<%= @word.id %>" method="post">
+      <label for="definition">Add a definition to this word:</label><br>
+      <input type="text" name="definition"><br>
+      <button type="submit" name="button">Add definition</button>
+    </form>
 
-    <% @list_defined.each do |definition| %>
-      <%= definition.definition %> <br>
-    <% end %>
-
-    <% Define::Word.added_definition.each do |item| %>
-      <%= item.definition
-    <% end %>
-
-  <form action="/word/<%=@word.id %>"method="post">
-    <label for="definition">Add another definition to this word:</label><br>
-    <input type="text" name="definition"><br>
-    <button type="submit" name="button">Add a definition</button>
-  </form>
-
-    <form class="form-group" action="/back" method="get">
+    <form class="form-group" href="/" method="get">
       <button type="button" class="btn-alert" na me="button">Return to List</button>
     </form>
   </div>
