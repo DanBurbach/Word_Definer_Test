@@ -5,7 +5,6 @@ require('./lib/word')
 require('pry')
 
 get('/') do
-  Word.clear
   @word = Word.all()
   erb (:word_listing)
 end
