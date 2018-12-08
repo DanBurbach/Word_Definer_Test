@@ -19,7 +19,7 @@ describe('the word definer', {:type => :feature}) do
       visit('/')
       fill_in('word', :with => 'test')
       fill_in('definition', :with => 'test2')
-      click_button('submit!')
+      click_button('Add!')
       click_link('test')
       expect(page).to have_content("test2")
     end
