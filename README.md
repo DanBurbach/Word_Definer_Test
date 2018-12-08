@@ -6,6 +6,11 @@ You'll need Git on your machine, or the ability to clone a repository from GitHu
 
 <h2>Installing</h2>
 git clone https://github.com/DanBurbach/Word_Definer_Test
+You will need a web browser.
+You can go to ******* to use the app.
+You need a terminal with Ruby installed
+Clone or download the repository, then type 'ruby app.rb' in your terminal. Then open your internet browser and type localhost:4567. You should now see the homepage.
+
 <h1>Word Definer</h1>
 This is an interactive webpage that allows the user to enter in a word, click on the word and have it show a definition as entered by the user.
 
@@ -20,7 +25,11 @@ This is an interactive webpage that allows the user to enter in a word, click on
 They're no known bugs, to date. 
 
 <h3>Built With</h3>
-Ruby 2.5.1
+Ruby
+Git
+BASH
+Atom
+Github
 
 <h3>Checked With</h3>
 Rspec
