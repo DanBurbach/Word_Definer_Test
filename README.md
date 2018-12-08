@@ -5,11 +5,11 @@
 You'll need Git on your machine, or the ability to clone a repository from GitHub. Accessability to Heroku.
 
 <h2>Installing</h2>
-git clone https://github.com/DanBurbach/Word_Definer_Test
-You will need a web browser.
-You can go to ******* to use the app.
-You need a terminal with Ruby installed
-Clone or download the repository, then type 'ruby app.rb' in your terminal. Then open your internet browser and type localhost:4567. You should now see the homepage.
+<p>Git clone https://github.com/DanBurbach/Word_Definer_Test</p>
+<p>You will need a web browser.</p>
+<p>You can go to ******* to use the app.</p>
+<p>You need a terminal with Ruby installed</p>
+<p>Clone or download the repository, then type 'ruby app.rb' in your terminal. Then open your internet browser and type localhost:4567. You should now see the homepage.</p>
 
 <h1>Word Definer</h1>
 This is an interactive webpage that allows the user to enter in a word, click on the word and have it show a definition as entered by the user.
