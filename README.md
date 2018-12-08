@@ -17,7 +17,7 @@ This is an interactive webpage that allows the user to enter in a word, click on
 <h2>Specifications</h2>
 <ul>
 <li>Program will save your word and definition entry</li>
-</li>Program will sort your words into alphabetical order</li>
+<li>Program will sort your words into alphabetical order</li>
 <li>Program will take you to a seperate page where the definition of the word will be displayed</li>
 </ul>
 
@@ -25,11 +25,13 @@ This is an interactive webpage that allows the user to enter in a word, click on
 They're no known bugs, to date. 
 
 <h3>Built With</h3>
-Ruby
-Git
-BASH
-Atom
-Github
+<ul>
+  <li>Ruby</li>
+  <li>Git</li>
+  <li>BASH</li>
+  <li>Atom</li>
+  <li>Github</li>
+</ul>
 
 <h3>Checked With</h3>
 Rspec
