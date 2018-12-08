@@ -13,13 +13,16 @@ describe('enter a word', {:type => :feature}) do
   end
 end
 
-describe('got to word and look at definition', {:type => :feature}) do
-  it "goes to a word" do
-    visit('/')
-    fill_in('word', :with => 'dog')
-    fill_in('definition', :with => 'canine')
-    visit('/word/1')
-    expect(page).to have_content('dog')
+describe('the word definer', {:type => :feature}) do
+  context('when a word is clicked') do
+    it('takes you to word.erb, with the definitions displayed') do
+      visit('/')
+      fill_in('word', :with => 'test')
+      fill_in('definition', :with => 'test2')
+      click_button('submit!')
+      click_link('test')
+      expect(page).to have_content("test2")
+    end
   end
 end
 
