@@ -6,8 +6,14 @@ You'll need Git on your machine, or the ability to clone a repository from GitHu
 
 <h2>Installing</h2>
 git clone https://github.com/DanBurbach/Word_Definer_Test
-<h1>Word Definer</h1>
-This is an interactive webpage that allows the user to enter in a word, click on the word and have it show a definition as entered by the user.
+<h2>Setup/Installation Requirements</h2>
+<ul>
+<li>You need a web browser.</li>
+<li>Go to https://frozen-brook-78235.herokuapp.com/ to use the app.</li>
+<li>Any text editor should do if you want to edit.</li>
+<li>You need a terminal with Ruby installed</li>
+<li>Clone or download the repository, then type 'ruby app.rb' in your terminal. Then open your internet browser and type localhost:4567. You should now see the homepage.</li>
+</ul>
 
 <h2>Specifications</h2>
 <ul>
@@ -16,11 +22,19 @@ This is an interactive webpage that allows the user to enter in a word, click on
 <li>Program will take you to a seperate page where the definition of the word will be displayed</li>
 </ul>
 
+<h2>Support and contact details</h2>
+Feel free to contact me with any suggestions or questions.
+email: dburbach1982@gmail.com
+
 <h3>Known Bugs</h3> 
 They're no known bugs, to date. 
 
 <h3>Built With</h3>
 Ruby 2.5.1
+Git
+BASH
+Atom
+Github
 
 <h3>Checked With</h3>
 Rspec
